@@ -20,8 +20,10 @@ echo $tmp_dir
 # Clone GitHub repo
 git clone https://github.com/jkatergaris/spags-public.git $tmp_dir
 
+file=$tmp_dir/my-app/1-deployment.yaml
+echo $file
 # Update image tag
-sed -i '' -e "s/jkatergaris\/nginx:.*/jkatergaris\/nginx:$new_ver/g" -f $tmp_dir/my-app/1-deployment.yaml
+sed -i "s/nginx:v.*/nginx:$new_ver/" $file
 
 # Commit and push
 cd $tmp_dir
